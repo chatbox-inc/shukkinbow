@@ -15,11 +15,15 @@ class CreateTUserTable extends Migration
     {
         Schema::create('t_user', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('torken');
+            $table->string('refreshtoken')->nullable();
+            $table->unsignedInteger('expiresin');
             $table->string('google_id');
+            $table->string('nickname')->nullable();
             $table->string('name');
             $table->string('email');
-            $table->string('avatar_url');
-            $table->increments('company_id');
+            $table->string('avatar');
+            $table->string('company_id');
             $table->timestamps();
         });
     }

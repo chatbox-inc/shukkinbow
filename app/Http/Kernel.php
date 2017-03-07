@@ -56,5 +56,8 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'google' => \App\Http\Middleware\GoogleAuth::class,
+        'start' => \App\Http\Middleware\RedirectStart::class,
+        'count' => \App\Http\Middleware\RedirectCount::class,
     ];
 }

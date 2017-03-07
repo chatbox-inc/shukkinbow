@@ -1,40 +1,47 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+#shukkinbow
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+出勤退勤を管理するアプリ
 
-## About Laravel
+URL : https://shukkinbow.herokuapp.com
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+デザイン : https://xd.adobe.com/view/603b1f48-9f2b-4116-92cb-c019b07f186f/
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+###動作環境
+**local**
+- laravel 5.4
+- mysql 14.14
 
-## Learning Laravel
+**heroku**
+- Laravel 5.4
+- postgresql 9.6.2
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+###手順
+1. gmailアカウントでログイン
+2. 勤務地（office,remote）を選択する
+3. startボタンを押して勤務を開始する
+4. 勤務終了のタイミングでstopボタンを押す
+5. 出勤開始時間と終了時間、労働時間が表示される
 
-## Contributing
+### 構成
+**session情報**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+*google_id* : ログイン中のアカウント検索するよう
 
-## Security Vulnerabilities
+*attendance_id* : 勤務情報検索用、startミドルウェアでURL直打ち防止用
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+*count_flag* : 労働時間計測中かを判断するフラグ
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+<br>**AttendanceServiceクラス**
+
+勤務情報に関するデータ群はこのクラスで扱う
+
+<br>**middleware**
+
+*google* : ログインしているか判断してしてなかったら / にリダイレクト
+
+*start* : 勤務中でなければ /start へリダイレクト
+
+ *count* : 労働時間計測中であれば /count にリダイレクト

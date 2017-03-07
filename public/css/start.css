@@ -1,0 +1,110 @@
+.background {
+    background-color: #F5F5F5;
+}
+.current_time{
+    font-size: 95px;
+    text-align: center;
+    color:#6C6C6C;
+    position: relative;
+}
+.current_time:after{
+    content: "";
+    position: absolute;
+    left: -40px;
+    right: 0;
+    bottom: 0;
+    border-bottom: 2px solid #2A818A;
+    margin-left:50%;
+    width:80px;
+}
+.start{
+    background-color: #2A818A;
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.start button{
+    padding: 20px 0;
+    width: 250px;
+    color: #fff;
+    border:solid 0px;
+    background-color: rgba(0,0,0,0);
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+/*
+*turn box
+*/
+.radio-wrapper {
+    text-align: center;
+}
+.radio {
+    font-size: 5px;
+    color: #fff;
+    display: inline-block !important;
+}
+.radio p {
+    -webkit-transition: all 100ms ease-in-out 0ms;
+    -moz-transition: all 100ms ease-in-out 0ms;
+    -ms-transition: all 100ms ease-in-out 0ms;
+    -o-transition: all 100ms ease-in-out 0ms;
+    transition: all 100ms ease-in-out 0ms;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 10px;
+    padding-top:5px;
+}
+.radio p:hover {
+    color: rgba(255, 255, 255, 1);
+}
+.radio.turnBoxCurrentFace2 > .turnBoxFaceNum1 {
+    background-color: #EE6557;
+}
+.radio.turnBoxCurrentFace2 > .turnBoxFaceNum2 {
+    background-color: #EE6557;
+}
+.radio .turnBoxFaceNum1 {
+    background-color: #BFBFBF;
+}
+.radio .turnBoxFaceNum2 {
+    background-color: #BFBFBF;
+}
+.radio .turnBoxFaceNum2 p {
+    color: #fff;
+}
+
+.office{
+    position: relative;
+}
+.office:after{
+    content:"";
+    position: absolute;
+    background-image:url('/img/office.png');
+    height:24px;
+    width:24px;
+    top:45px;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    margin:auto;
+}
+.remote{
+    position: relative;
+}
+.remote:after{
+    content:"";
+    position: absolute;
+    background-image:url('/img/remote.png');
+    height:24px;
+    width:24px;
+    top:45px;
+    bottom:0px;
+    right:0px;
+    left:-4px;
+    margin:auto;
+}

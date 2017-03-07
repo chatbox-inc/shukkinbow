@@ -1,0 +1,39 @@
+.background {
+    background-color: #EC665B;
+}
+.time-wrapper{
+    text-align: center;
+    color:white;
+    font-size:25px;
+    height:150px;
+}
+.time-wrapper p{
+    padding-bottom:25px;
+    box-sizing: border-box;
+}
+.end{
+    background-color: #fff;
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.end a{
+    padding: 20px 0;
+    display:block;
+    color: #EC665B;
+    text-decoration: none;
+    position: relative;
+}
+.end a:after{
+    content:"";
+    position: absolute;
+    background-image:url('/img/close.png');
+    height:36px;
+    width:36px;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    margin:auto;
+}
